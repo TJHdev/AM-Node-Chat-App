@@ -5,17 +5,17 @@ socket.on('connect', function () {
 
     socket.emit('createMessage', {
         from: 'Tom',
-        text: 'Why are you such a twat?'
+        text: 'Really why is this not working?'
     })
 
 });
 
-socket.on('newMessage', function(newMessage) {
-    console.log('newMessage', newMessage);
+socket.on('newMessage', function(message) {
+    console.log('newMessage', message);
 })
 
 socket.on('disconnect', function () {
-    console.log('Disconnected from server.')
+    console.log('Disconnected from server.');
 });
 
 
