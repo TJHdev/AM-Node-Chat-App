@@ -1,4 +1,4 @@
-let generateMessage = (from, text) => {
+const generateMessage = (from, text) => {
     return {
         from: from,
         text: text,
@@ -6,4 +6,17 @@ let generateMessage = (from, text) => {
     }
 };
 
-module.exports = { generateMessage:generateMessage }
+
+const generateLocationMessage = (from, latitude, longitude) => {
+    return {
+        from: from,
+        url: `https://www.google.com/maps?q=${latitude},${longitude}`,
+        createdAt: new Date().valueOf()
+    }
+}
+
+module.exports = { 
+    generateMessage:generateMessage, 
+    generateLocationMessage:generateLocationMessage 
+}
+
