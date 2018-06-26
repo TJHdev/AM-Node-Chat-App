@@ -18,4 +18,4 @@ console.log(someTimestamp);
 
 let createdAt = 12345;
 let date = moment(createdAt);
-console.log(date.format('h:mm a')) 
+console.log(date.format('h:mm a')); 
