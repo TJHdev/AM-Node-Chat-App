@@ -39,7 +39,6 @@ socket.on('updateUserList', function (users) {
 });
 
 socket.on('disconnect', function () {
-    
     console.log('Disconnected from server.');
 });
 
@@ -76,7 +75,6 @@ jQuery('#message-form').on('submit', function (e) {
     let messageTextbox = jQuery('[name=message]');
 
     socket.emit('createMessage', {
-        from: 'User',
         text: messageTextbox.val()
     }, function () {
         messageTextbox.val('');
