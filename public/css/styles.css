@@ -171,6 +171,10 @@
   .message__title span {
     color: #999;
   }
+
+  .hidden {
+    display: none;
+  }
   
   @media (max-width: 600px) {
     * {

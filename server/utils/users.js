@@ -27,6 +27,13 @@ class Users {
 
         return user;
     }
+    getUserByName (name) {
+        var user = this.users.find((user) => {
+            return name.toLowerCase() === user.name.toLowerCase();
+        })
+
+        return user;
+    }
     getUserList (room) {
         var users = this.users.filter((user) => {
             return user.room === room;
@@ -35,6 +42,15 @@ class Users {
             return user.name
         });
         return namesArray;
+    }
+    getUniqueRoomArray () {
+        var rooms = [];
+        this.users.forEach((user) => {
+            if (rooms.indexOf(user.room) === -1) {
+                rooms.push(user.room);
+            }
+        })
+        return rooms;
     }
 }
 

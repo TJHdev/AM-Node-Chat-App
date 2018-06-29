@@ -52,7 +52,7 @@ describe('Users', () => {
         expect(invalidRemoval).toBeFalsy();
     });
 
-    it('should find user', () => {
+    it('should find user by id', () => {
         var foundUser = users.getUser('1');
         expect(foundUser).toEqual({
             id: '1',
@@ -61,10 +61,25 @@ describe('Users', () => {
         })
     });
 
-    it('should not find user', () => {
+    it('should not find user by id', () => {
         var invalidUser = users.getUser('Dave');
         expect(invalidUser).toBeFalsy();
     })
+
+    it('should find user by name', () => {
+        var foundUser = users.getUserByName('Mike')
+        expect(foundUser).toEqual({
+            id: '1',
+            name: 'Mike',
+            room: 'Node Course'
+        })
+    })
+
+    it('should not find user by name', () => {
+        var notFoundUser = users.getUserByName('Mikee')
+        expect(notFoundUser).toBeFalsy();
+    })
+
 
     it('should return names for Node Course', () => {
         var userList = users.getUserList('Node Course');
@@ -77,4 +92,12 @@ describe('Users', () => {
 
         expect(userList).toEqual(['Tom'])
     });
+
+    it('should return an array with 2 rooms in it', () => {
+        var uniqueRoomsArray = users.getUniqueRoomArray();
+
+        expect(uniqueRoomsArray.length).toBe(2);
+        expect(uniqueRoomsArray).toEqual(['Node Course', 'React Course'])
+
+    })
 });
